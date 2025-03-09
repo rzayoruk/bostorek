@@ -3,24 +3,26 @@
     <img class="rounded-t-md" src="../../template/images/b1.jpg" alt="" />
     <span
       class="bg-primary text-white py-1 px-2 rounded-full text-sm inline-block -translate-y-3.5"
-      >{{ author }}</span
+      >{{ book.author }}</span
     >
     <div class="px-4 pb-3 text-left">
-      <h2 class="font-semibold text-lg">{{ name }}</h2>
+      <h2 class="font-semibold text-lg">{{ book.name }}</h2>
       <p class="line-clamp-3">
-        {{ description }}
+        {{ book.description }}
       </p>
-      <div class="flex flex-row justify-between items-center">
+      <div class="flex flex-row justify-between items-center mt-2.5">
         <a class="underline text-blue-700" href="#">Read More...</a>
-        <span class="text-xs bg-primary text-white py-1 px-2 rounded-full"
-          >{{ uploadDate }}</span
-        >
+        <span class="text-xs bg-primary text-white py-1 px-2 rounded-full">{{
+          book.uploadDate
+        }}</span>
       </div>
       <div
-        class="aspect-square bg-emerald-400 text-white p-3 rounded-full absolute -top-6 -right-6 border-2 border-white"
+        class="aspect-square text-white p-3 rounded-full absolute -top-6 -right-6 border-2 border-white"
+        :class="ratingBadgeClass"
       >
-        {{ rating.toFixed(1) }}
+        {{ book.rating.toFixed(1) }}
       </div>
+      
     </div>
   </div>
 </template>
@@ -28,25 +30,16 @@
 export default {
   name: "BookItem",
   props: {
-    name: {
-      type: String,
-      required: true,
+    book: {
+      type: Object,
+      default: () => {},
     },
-    description: {
-      type: String,
-      required: true,
-    },
-    author: {
-      type: String,
-      required: true,
-    },
-    rating: {
-      type: Number,
-      required: true,
-    },
-    uploadDate: {
-      type: String,
-      required: true,
+  },
+  computed: {
+    ratingBadgeClass() {
+      if (this.book.rating >= 4) return "bg-green-300"
+      else if (this.book.rating >= 3) return "bg-blue-300"
+      else return "bg-red-300"
     },
   },
 }

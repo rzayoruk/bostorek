@@ -6,7 +6,7 @@ const books = [
     page: 324,
     description:
       "A novel about the serious issues of rape and racial inequality, seen through the eyes of young Scout Finch.",
-    rating: 4.8,
+    rating: 3.8,
     uploadDate: "1960-07-11",
   },
   {
@@ -26,7 +26,7 @@ const books = [
     page: 635,
     description:
       "The tale of the obsessive quest of Captain Ahab for revenge on Moby Dick, the giant white whale.",
-    rating: 4.3,
+    rating: 1.3,
     uploadDate: "1851-10-18",
   },
   {
@@ -36,7 +36,7 @@ const books = [
     page: 279,
     description:
       "A romantic novel that also critiques the social structure of early 19th-century England.",
-    rating: 4.6,
+    rating: 3.6,
     uploadDate: "1813-01-28",
   },
   {
@@ -76,7 +76,7 @@ const books = [
     page: 500,
     description:
       "An epic Greek poem that narrates the adventures of Odysseus as he attempts to return home after the Trojan War.",
-    rating: 4.6,
+    rating: 2.6,
     uploadDate: "700 BC",
   },
   {
@@ -96,8 +96,99 @@ const books = [
     page: 311,
     description:
       "A dystopian novel that explores a society that has achieved apparent stability and happiness through technology and control.",
-    rating: 4.3,
+    rating: 2.3,
     uploadDate: "1932-01-01",
+  },
+  {
+    id: 11,
+    name: "Introduction to the Theory of Computation",
+    author: "Michael Sipser",
+    page: 480,
+    description: "A deep dive into computational theory and complexity.",
+    rating: 4.5,
+    uploadDate: "2018-10-14",
+  },
+  {
+    id: 12,
+    name: "Grokking Algorithms",
+    author: "Aditya Bhargava",
+    page: 256,
+    description: "A friendly guide to learning algorithms visually.",
+    rating: 4.7,
+    uploadDate: "2020-02-05",
+  },
+  {
+    id: 13,
+    name: "The Phoenix Project",
+    author: "Gene Kim",
+    page: 345,
+    description: "A novel about IT, DevOps, and business transformation.",
+    rating: 4.6,
+    uploadDate: "2022-12-20",
+  },
+  {
+    id: 14,
+    name: "Continuous Delivery",
+    author: "Jez Humble",
+    page: 512,
+    description: "A practical guide to achieving rapid software delivery.",
+    rating: 4.8,
+    uploadDate: "2021-07-01",
+  },
+  {
+    id: 15,
+    name: "The DevOps Handbook",
+    author: "Gene Kim",
+    page: 480,
+    description: "How to create world-class agility and reliability in tech.",
+    rating: 4.7,
+    uploadDate: "2023-09-12",
+  },
+  {
+    id: 16,
+    name: "Don't Make Me Think",
+    author: "Steve Krug",
+    page: 216,
+    description: "A common sense approach to web usability.",
+    rating: 4.9,
+    uploadDate: "2020-11-23",
+  },
+  {
+    id: 17,
+    name: "How to Win Friends and Influence People",
+    author: "Dale Carnegie",
+    page: 320,
+    description: "A timeless guide to interpersonal skills and leadership.",
+    rating: 4.8,
+    uploadDate: "2019-08-30",
+  },
+  {
+    id: 18,
+    name: "The Lean Startup",
+    author: "Eric Ries",
+    page: 336,
+    description: "How modern startups innovate and succeed.",
+    rating: 4.7,
+    uploadDate: "2018-12-10",
+  },
+  {
+    id: 19,
+    name: "Cracking the Coding Interview",
+    author: "Gayle Laakmann McDowell",
+    page: 708,
+    description: "A comprehensive guide to coding interview preparation.",
+    rating: 4.9,
+    uploadDate: "2021-04-15",
+  },
+  {
+    id: 20,
+    name: "Soft Skills: The software developer's life manual",
+    author: "John Sonmez",
+    page: 504,
+    description:
+      "A guide to career, personal finance, and productivity for developers.",
+    rating: 4.6,
+    uploadDate: "2022-06-28",
   },
 ]
 export default books
