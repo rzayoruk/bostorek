@@ -2,7 +2,7 @@
   <nav
     class="bg-primary px-[7%] py-4 text-white flex justify-between items-center font-mulish"
   >
-    <RouterLink class="font-bold text-2xl" v-bind:to="{ name: 'home' }">{{
+    <RouterLink class="font-bold text-2xl !text-white" v-bind:to="{ name: 'home' }">{{
       brandName
     }}</RouterLink>
     <ul class="flex gap-x-1">
