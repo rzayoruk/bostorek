@@ -1,7 +1,11 @@
 <template>
   <div class="px-[7%]">
     <SectionHeader title="Register" content="register page" />
-    <form class="max-w-[400px] mx-auto mt-20 flex flex-col gap-y-2" action="">
+    <form
+      @submit.prevent="submitForm"
+      class="max-w-[400px] mx-auto mt-20 flex flex-col gap-y-2"
+      action=""
+    >
       <div>
         <label class="text-gray-500" for="username">Username</label>
         <input
@@ -43,7 +47,7 @@
           name="gender"
           value="male"
           id="male"
-          class="focus:outline-0 text-blue-300 focus:ring-0 border-blue-300 transition-all ease-in cursor-pointer p-1"
+          class="focus:outline-0 text-blue-300 focus:ring-0 focus:ring-offset-0 border-blue-300 transition-all ease-in cursor-pointer p-1"
         />
         <label class="" for="male"> Male</label>
         <br />
@@ -97,6 +101,11 @@
           value="php"
         />
         <label class="text-gray-500 cursor-pointer" for="php"> PHP</label><br />
+        <button
+          class="px-4 py-2 border cursor-pointer block mx-auto rounded-full bg-primary border-primary text-white"
+        >
+          Submit
+        </button>
       </div>
     </form>
   </div>
@@ -122,8 +131,8 @@ export default {
     SectionHeader,
   },
   methods: {
-    updateGender(gender) {
-      this.formData.gender = gender
+    submitForm() {
+      console.log(this.formData)
     },
   },
 }
