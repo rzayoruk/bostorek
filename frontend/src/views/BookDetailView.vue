@@ -1,11 +1,12 @@
 <template>
   <div class="px-[7%]">
     <SectionHeader :title="book.name" :content="book.author" />
-    <button
-      class="border border-black p-2 rounded-sm bg-primary text-white cursor-pointer mb-4"
-    >
-      Back
-    </button>
+    <font-awesome-icon
+      :icon="['fas', 'arrow-left']"
+      class="cursor-pointer p-2"
+      size="xl"
+      @click="$router.back"
+    />
     <div class="grid grid-cols-[3fr_2fr] gap-x-5">
       <img
         class="aspect-auto h-full w-full object-cover object-center grow"
@@ -48,11 +49,7 @@
             <div class="mt-2 flex justify-between">
               <span class="italic inline-block">Rıza Yörük</span>
               <div class="flex gap-x-3">
-                <p
-                  class="cursor-pointer hover:underline transition-all ease-in"
-                >
-                  Upvote :
-                </p>
+                <font-awesome-icon :icon="['far', 'thumbs-up']" />
                 <p>8</p>
               </div>
             </div>
@@ -114,7 +111,6 @@ export default {
   created() {
     const bookdId = this.$route.params.id
     this.book = books.find((book) => book.id === parseInt(bookdId))
-    console.log(this.book)
   },
 }
 </script>
