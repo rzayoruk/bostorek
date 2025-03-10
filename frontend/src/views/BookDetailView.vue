@@ -1,5 +1,5 @@
 <template>
-  <div class="px-[7%]">
+  <main class="px-[7%]">
     <SectionHeader :title="book.name" :content="book.author" />
     <font-awesome-icon
       :icon="['fas', 'arrow-left']"
@@ -93,7 +93,7 @@
         </section>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 <script>
 import SectionHeader from "@/components/SectionHeader.vue"

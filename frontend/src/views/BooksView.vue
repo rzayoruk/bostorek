@@ -1,5 +1,5 @@
 <template>
-  <div class="px-[7%]">
+  <main class="px-[7%]">
     <SectionHeader title="Books Header" content="Books content" />
     <BookList :books="show4" />
     <Pagination
@@ -8,7 +8,7 @@
       :currentPage="currentPage"
       @page-changed="changePage"
     />
-  </div>
+  </main>
 </template>
 
 <script>

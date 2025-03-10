@@ -1,7 +1,7 @@
 <template>
-  <div class="px-[7%]">
+  <main class="px-[7%]">
     <SectionHeader title="Contact Us" content="Contact Form" />
-  </div>
+  </main>
 </template>
 
 <script>
