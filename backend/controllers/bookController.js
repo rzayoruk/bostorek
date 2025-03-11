@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import Book from "../models/Book.js"
+import { isValidObjectId } from "../utils/index.js"
 
 const createABook = async (req, res) => {
   try {
@@ -45,9 +46,9 @@ const getAllBooks = async (req, res) => {
 
 const getABook = async (req, res) => {
   const { id } = req.params
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ error: "Object id is invalid" })
-  }
+
+  if (!isValidObjectId(id, res)) return
+
   try {
     const book = await Book.findById(id)
     if (!book) {
@@ -64,9 +65,7 @@ const updateABook = async (req, res) => {
   const { id } = req.params
   const { title, author, description, pageNumber, rating } = req.body
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ error: "Object id is invalid" })
-  }
+  if (!isValidObjectId(id, res)) return
 
   try {
     const book = await Book.findById(id)
@@ -91,9 +90,8 @@ const updateABook = async (req, res) => {
 
 const deleteABook = async (req, res) => {
   const { id } = req.params
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ error: "Object Id is invalid." })
-  }
+
+  if (!isValidObjectId(id, res)) return
 
   try {
     const book = await Book.findById(id)
