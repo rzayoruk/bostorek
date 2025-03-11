@@ -1,6 +1,6 @@
 <template>
-  <main class="px-[7%]">
-    <SectionHeader :title="book.name" :content="book.author" />
+  <main v-if="!loading" class="px-[7%]">
+    <SectionHeader :title="book.title" :content="book.author" />
     <font-awesome-icon
       :icon="['fas', 'arrow-left']"
       class="cursor-pointer p-2"
@@ -23,7 +23,7 @@
         <div class="mb-6">
           <div class="grid grid-cols-2 border-b border-gray-300 py-1">
             <strong>Page</strong>
-            <span class="font-light">{{ book.page }}</span>
+            <span class="font-light">{{ book.pageNumber }}</span>
           </div>
           <div class="grid grid-cols-2 border-b border-gray-300 py-1">
             <strong>Category</strong>
@@ -35,7 +35,7 @@
           </div>
           <div class="grid grid-cols-2 border-b border-gray-300 py-1">
             <strong>Upload Date</strong>
-            <span class="font-light">{{ book.uploadDate }}</span>
+            <span class="font-light">{{ book.createdAt }}</span>
           </div>
         </div>
         <section class="flex flex-col gap-y-2 max-h-[200px] overflow-y-auto">
@@ -94,10 +94,12 @@
       </div>
     </div>
   </main>
+  <main v-else="loading" class="px-[7%]">
+    <p class="text-center text-4xl font-bold">LOADING...</p>
+  </main>
 </template>
 <script>
 import SectionHeader from "@/components/SectionHeader.vue"
-import books from "@/db.js"
 export default {
   name: "BookDetail",
   components: {
@@ -106,11 +108,25 @@ export default {
   data() {
     return {
       book: null,
+      loading: true,
     }
   },
   created() {
-    const bookdId = this.$route.params.id
-    this.book = books.find((book) => book.id === parseInt(bookdId))
+    // const bookdId = this.$route.params.id
+    // this.book = books.find((book) => book.id === parseInt(bookdId))
+    this.fetchABook()
+  },
+  methods: {
+    async fetchABook() {
+      try {
+        const response = await fetch(
+          "http://localhost:3000/api/v1/books/" + this.$route.params.id
+        )
+        const data = await response.json()
+        this.book = data
+        this.loading = false
+      } catch (error) {}
+    },
   },
 }
 </script>
