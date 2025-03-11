@@ -3,10 +3,16 @@ import * as bookController from "../controllers/bookController.js"
 
 const router = express.Router()
 
-router.post("/", bookController.createABook)
-router.get("/", bookController.getAllBooks)
-router.get("/:id", bookController.getABook)
-router.put("/:id", bookController.updateABook)
-router.delete("/:id", bookController.deleteABook)
+
+router
+  .route("/")
+  .post(bookController.createABook)
+  .get(bookController.getAllBooks)
+
+router
+  .route("/:id")
+  .get(bookController.getABook)
+  .put(bookController.updateABook)
+  .delete(bookController.deleteABook)
 
 export default router
